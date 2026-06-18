@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sangati Vishnu Sai | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0f1c2e;
+      --navy2:   #162236;
+      --navy3:   #1e3050;
+      --slate:   #2e4a6e;
+      --gold:    #c9a84c;
+      --gold-lt: #e0c070;
+      --white:   #f4f6f9;
+      --grey:    #8fa3bc;
+      --light:   #d0dce8;
+      --card:    #162236;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(15,28,46,0.93);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--light);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 80px 5% 60px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy3) 100%);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    }
+    .hero-inner { max-width: 700px; }
+    .hero-eyebrow {
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero-sub {
+      font-size: 1.05rem; color: var(--grey);
+      max-width: 520px; margin-bottom: 2rem;
+    }
+    .hero-meta {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+      font-size: 0.85rem; color: var(--grey); margin-bottom: 2.5rem;
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 0.4rem; }
+    .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 0.7rem 1.8rem;
+      border-radius: 4px; font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; transition: all 0.22s; cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--gold); color: var(--navy);
+    }
+    .btn-primary:hover { background: var(--gold-lt); transform: translateY(-2px); }
+    .btn-outline {
+      border: 1.5px solid var(--gold); color: var(--gold); background: transparent;
+    }
+    .btn-outline:hover { background: rgba(201,168,76,0.1); transform: translateY(-2px); }
+
+    /* ── SECTIONS ── */
+    section { padding: 90px 5%; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--white); margin-bottom: 3rem;
+    }
+    .divider {
+      width: 50px; height: 3px; background: var(--gold);
+      margin: 0.75rem 0 2.5rem;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
+    }
+    .about-text p { color: var(--light); margin-bottom: 1rem; }
+    .about-details { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+    .detail-row { display: flex; gap: 1rem; font-size: 0.9rem; }
+    .detail-label { color: var(--gold); font-weight: 600; min-width: 80px; }
+    .detail-val { color: var(--light); }
+    .about-links { display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .about-links a {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1.2rem; border-radius: 4px;
+      font-size: 0.85rem; font-weight: 600; text-decoration: none;
+      border: 1.5px solid var(--slate); color: var(--light);
+      transition: all 0.2s;
+    }
+    .about-links a:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── EDUCATION ── */
+    #education { background: var(--navy2); }
+    .edu-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .edu-card {
+      background: var(--card); border: 1px solid rgba(201,168,76,0.15);
+      border-left: 4px solid var(--gold);
+      border-radius: 6px; padding: 1.5rem 2rem;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .edu-main h3 { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+    .edu-main p { font-size: 0.9rem; color: var(--grey); }
+    .edu-right { text-align: right; }
+    .edu-year { font-size: 0.8rem; color: var(--gold); font-weight: 600; letter-spacing: 1px; }
+    .edu-score {
+      display: inline-block; margin-top: 0.4rem;
+      background: rgba(201,168,76,0.12); color: var(--gold-lt);
+      padding: 0.2rem 0.8rem; border-radius: 20px;
+      font-size: 0.82rem; font-weight: 700;
+    }
+
+    /* ── INTERNSHIP ── */
+    .intern-card {
+      background: var(--card); border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 8px; padding: 2rem 2.5rem; max-width: 780px;
+    }
+    .intern-header { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.2rem; }
+    .intern-role { font-size: 1.15rem; font-weight: 700; color: var(--white); }
+    .intern-company { color: var(--gold); font-size: 0.95rem; font-weight: 600; margin-top: 0.2rem; }
+    .intern-year { font-size: 0.8rem; color: var(--gold); font-weight: 600; background: rgba(201,168,76,0.1); padding: 0.3rem 0.9rem; border-radius: 20px; align-self: flex-start; }
+    .intern-points { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .intern-points li {
+      color: var(--light); font-size: 0.92rem;
+      padding-left: 1.4rem; position: relative;
+    }
+    .intern-points li::before {
+      content: '▹'; position: absolute; left: 0; color: var(--gold);
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--navy2); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+    .skill-group {
+      background: var(--card); border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 8px; padding: 1.5rem;
+    }
+    .skill-group h3 {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      background: rgba(46,74,110,0.6); color: var(--light);
+      padding: 0.3rem 0.9rem; border-radius: 4px;
+      font-size: 0.82rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    /* ── CERTIFICATIONS ── */
+    .cert-card {
+      display: inline-flex; align-items: center; gap: 1rem;
+      background: var(--card); border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 8px; padding: 1.2rem 2rem; margin-bottom: 1rem;
+    }
+    .cert-icon { font-size: 1.8rem; }
+    .cert-name { font-weight: 600; color: var(--white); }
+    .cert-by { font-size: 0.85rem; color: var(--grey); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--navy2); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 900px; }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--card); border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 8px; padding: 1.5rem;
+    }
+    .contact-icon { font-size: 1.5rem; }
+    .contact-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 0.3rem; }
+    .contact-val { color: var(--light); font-size: 0.95rem; word-break: break-all; }
+    .contact-val a { color: var(--light); text-decoration: none; }
+    .contact-val a:hover { color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center; padding: 2rem;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      color: var(--grey); font-size: 0.82rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .edu-right { text-align: left; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">SVS</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#internship">Internship</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Portfolio</p>
+    <h1>Sangati <span>Vishnu Sai</span></h1>
+    <p class="hero-sub">B.Tech CSE student passionate about software development, web technologies, and building meaningful digital experiences.</p>
+    <div class="hero-meta">
+      <span>📍 Nellore, Andhra Pradesh</span>
+      <span>🎓 NBKR Institute of Science & Technology</span>
+    </div>
+    <div class="btn-row">
+      <a href="#contact" class="btn btn-primary">Get In Touch</a>
+      <a href="#internship" class="btn btn-outline">View Experience</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="fade-in">
+    <p class="section-label">Who I Am</p>
+    <h2 class="section-title">About Me</h2>
+    <div class="divider"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a motivated B.Tech Computer Science & Engineering student at NBKR Institute of Science and Technology, currently in my second year (2023–2027).</p>
+        <p>I have hands-on experience in Python, Java, and web development, and I'm passionate about solving real-world problems through clean, efficient code. I thrive in collaborative environments and am always eager to learn and grow.</p>
+        <p>Outside academics, I enjoy competitive programming on LeetCode and exploring the latest developments in cloud and web technologies.</p>
+        <div class="about-links">
+          <a href="https://linkedin.com" target="_blank">🔗 LinkedIn</a>
+          <a href="https://github.com" target="_blank">💻 GitHub</a>
+          <a href="https://leetcode.com" target="_blank">⚡ LeetCode</a>
+        </div>
+      </div>
+      <div>
+        <div class="about-details">
+          <div class="detail-row"><span class="detail-label">Name</span><span class="detail-val">Sangati Vishnu Sai</span></div>
+          <div class="detail-row"><span class="detail-label">Degree</span><span class="detail-val">B.Tech – CSE</span></div>
+          <div class="detail-row"><span class="detail-label">CGPA</span><span class="detail-val">7.67</span></div>
+          <div class="detail-row"><span class="detail-label">Location</span><span class="detail-val">Nellore, Andhra Pradesh</span></div>
+          <div class="detail-row"><span class="detail-label">Email</span><span class="detail-val">vishnusaisangati@gmail.com</span></div>
+          <div class="detail-row"><span class="detail-label">Phone</span><span class="detail-val">+91 7780335453</span></div>
+          <div class="detail-row"><span class="detail-label">Languages</span><span class="detail-val">English, Telugu</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="fade-in">
+    <p class="section-label">Academic Background</p>
+    <h2 class="section-title">Education</h2>
+    <div class="divider"></div>
+    <div class="edu-list">
+      <div class="edu-card">
+        <div class="edu-main">
+          <h3>B.Tech – Computer Science & Engineering</h3>
+          <p>NBKR Institute of Science and Technology</p>
+        </div>
+        <div class="edu-right">
+          <div class="edu-year">2023 – 2027</div>
+          <div class="edu-score">CGPA: 7.67</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-main">
+          <h3>Intermediate (MPC)</h3>
+          <p>SR. Junior College</p>
+        </div>
+        <div class="edu-right">
+          <div class="edu-year">2021 – 2023</div>
+          <div class="edu-score">97.5%</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-main">
+          <h3>SSC (10th Standard)</h3>
+          <p>Sri Geethanjali (E.M) High School</p>
+        </div>
+        <div class="edu-right">
+          <div class="edu-year">2020 – 2021</div>
+          <div class="edu-score">577 Marks</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERNSHIP -->
+<section id="internship">
+  <div class="fade-in">
+    <p class="section-label">Work Experience</p>
+    <h2 class="section-title">Internship</h2>
+    <div class="divider"></div>
+    <div class="intern-card">
+      <div class="intern-header">
+        <div>
+          <div class="intern-role">Web Development Intern</div>
+          <div class="intern-company">Cognifyz Technologies</div>
+        </div>
+        <div class="intern-year">2026</div>
+      </div>
+      <ul class="intern-points">
+        <li>Developed and maintained web applications using HTML, CSS, and JavaScript as part of the Cognifyz internship programme.</li>
+        <li>Collaborated on front-end features and gained practical exposure to real-world web development workflows.</li>
+        <li>Worked in a team environment, applying problem-solving skills to build functional and user-friendly interfaces.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="fade-in">
+    <p class="section-label">Technical Expertise</p>
+    <h2 class="section-title">Skills</h2>
+    <div class="divider"></div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <div class="skill-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Web Technologies</h3>
+        <div class="skill-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Database</h3>
+        <div class="skill-tags">
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Tools & Platforms</h3>
+        <div class="skill-tags">
+          <span class="tag">Git</span>
+          <span class="tag">GitHub</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Soft Skills</h3>
+        <div class="skill-tags">
+          <span class="tag">Communication</span>
+          <span class="tag">Problem-Solving</span>
+          <span class="tag">Team Collaboration</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Certifications</h3>
+        <div class="skill-tags">
+          <span class="tag">Python – Scaler</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="fade-in">
+    <p class="section-label">Let's Connect</p>
+    <h2 class="section-title">Contact</h2>
+    <div class="divider"></div>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val"><a href="mailto:vishnusaisangati@gmail.com">vishnusaisangati@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-val"><a href="tel:+917780335453">+91 7780335453</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🔗</div>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-val"><a href="https://linkedin.com" target="_blank">linkedin.com/in/vishnusaisangati</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">💻</div>
+        <div>
+          <div class="contact-label">GitHub</div>
+          <div class="contact-val"><a href="https://github.com" target="_blank">github.com/vishnusaisangati</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Sangati Vishnu Sai · Designed & Built with ❤️</p>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // AWS Visitor Logger
+  async function logVisit() {
+    try {
+      const API_URL = 'https://zkna3ufxgd.execute-api.ap-south-2.amazonaws.com/log-visit';
+      await fetch(API_URL, {
+        method: 'GET',
+      });
+      console.log('Visit logged!');
+    } catch (error) {
+      console.error('Logging error:', error);
+    }
+  }
+  window.addEventListener('load', logVisit);
+</script>
+
+</body>
+</html>
